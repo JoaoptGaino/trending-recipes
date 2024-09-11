@@ -13,7 +13,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,7 +27,7 @@ public class RecipeController {
         log.info("RecipeController.findAll - Start - Pageable [{}]", pageable);
         Page<RecipeDTO> recipes = recipeService.findAll(pageable);
         ResponseEntity<Page<RecipeDTO>> response = ResponseEntity.ok(recipes);
-        log.info("RecipeController.findAll - End - Pageable [{}], Recipes [{}]", pageable, recipes.getContent());
+        log.info("RecipeController.findAll - End - Pageable [{}], Recipes [{}]", pageable, recipes);
         return response;
     }
 

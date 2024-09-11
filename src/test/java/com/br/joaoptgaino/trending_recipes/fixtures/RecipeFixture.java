@@ -1,5 +1,6 @@
 package com.br.joaoptgaino.trending_recipes.fixtures;
 
+import com.br.joaoptgaino.trending_recipes.dto.RecipeDTO;
 import com.br.joaoptgaino.trending_recipes.entities.RecipeEntity;
 import com.br.joaoptgaino.trending_recipes.entities.enums.Difficulty;
 import org.springframework.data.domain.Page;
@@ -18,5 +19,17 @@ public class RecipeFixture {
 
     public static RecipeEntity getRecipeEntityFixture() {
         return new RecipeEntity(1L, "Burger", Difficulty.MEDIUM, 1, "img");
+    }
+
+    public static Page<RecipeDTO> getPageRecipeDTOFixture() {
+        return new PageImpl<>(getRecipeDTOListFixture());
+    }
+
+    public static List<RecipeDTO> getRecipeDTOListFixture() {
+        return List.of(getRecipeDTOFixture());
+    }
+
+    public static RecipeDTO getRecipeDTOFixture() {
+        return new RecipeDTO("Burger", Difficulty.MEDIUM, 1, "img");
     }
 }
